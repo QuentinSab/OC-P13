@@ -1,3 +1,7 @@
+"""
+Admin configuration for the lettings application.
+"""
+
 from django.contrib import admin
 
 from lettings.models import Letting, Address

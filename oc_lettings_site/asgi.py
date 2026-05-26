@@ -1,3 +1,7 @@
+"""
+ASGI configuration for the oc_lettings_site project.
+"""
+
 import os
 
 from django.core.asgi import get_asgi_application

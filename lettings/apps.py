@@ -1,3 +1,7 @@
+"""
+Application configuration for the lettings app.
+"""
+
 from django.apps import AppConfig
 
 

@@ -1,9 +1,16 @@
+"""
+Views for the lettings application.
+"""
+
 from django.shortcuts import render
 from .models import Letting
 
 
 # Aenean leo magna, vestibulum et tincidunt fermentum, consectetur quis velit.
 def index(request):
+    """
+    Display the list of available lettings.
+    """
     lettings_list = Letting.objects.all()
     context = {'lettings_list': lettings_list}
     return render(request, 'lettings/index.html', context)
@@ -11,6 +18,9 @@ def index(request):
 
 # Cras ultricies dignissim purus, vitae hendrerit ex varius non.
 def letting(request, letting_id):
+    """
+    Display details for a specific letting.
+    """
     letting = Letting.objects.get(id=letting_id)
     context = {
         'title': letting.title,

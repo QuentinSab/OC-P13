@@ -1,3 +1,7 @@
+"""
+Settings and configuration for the oc_lettings_site Django project.
+"""
+
 import os
 
 from pathlib import Path
