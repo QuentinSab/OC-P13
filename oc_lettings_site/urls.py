@@ -9,3 +9,6 @@ urlpatterns = [
     path('lettings/', include('lettings.urls')),
     path('profiles/', include('profiles.urls')),
 ]
+
+handler404 = 'oc_lettings_site.views.error_404'
+handler500 = 'oc_lettings_site.views.error_500'
