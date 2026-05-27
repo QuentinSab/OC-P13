@@ -5,7 +5,7 @@ URL configuration for the oc_lettings_site project.
 from django.contrib import admin
 from django.urls import path, include
 
-from . import views
+from oc_lettings_site import views
 
 urlpatterns = [
     path('', views.index, name='index'),
