@@ -4,12 +4,18 @@ Views for the oc_lettings_site application.
 
 from django.shortcuts import render
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 # Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 def index(request):
     """
     Render the home page.
     """
+    logger.info("Index page accessed")
+
     return render(request, 'index.html')
 
 
