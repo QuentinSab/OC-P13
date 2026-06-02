@@ -4,6 +4,5 @@ venv
 .env
 .coverage
 .git
-.github
 .pytest_cache
 staticfiles
