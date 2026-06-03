@@ -28,6 +28,9 @@ jobs:
       - name: Flake8
         run: flake8 .
 
+      - name: Collect static
+        run: python manage.py collectstatic --noinput
+
       - name: Test coverage
         run: pytest --cov=. --cov-report=term-missing --cov-fail-under=80
 
