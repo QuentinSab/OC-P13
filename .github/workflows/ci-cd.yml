@@ -28,9 +28,6 @@ jobs:
       - name: Flake8
         run: flake8 .
 
-      - name: Collect static
-        run: python manage.py collectstatic --noinput
-
       - name: Test coverage
         run: pytest --cov=. --cov-report=term-missing --cov-fail-under=80
 
@@ -49,9 +46,15 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build Docker image
+        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/oc-p13_oc-lettings:${{ github.sha }} .
+
+      - name: Tag latest
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/oc-p13_oc-lettings:${{ github.sha }} .
           docker tag ${{ secrets.DOCKERHUB_USERNAME }}/oc-p13_oc-lettings:${{ github.sha }} \
                      ${{ secrets.DOCKERHUB_USERNAME }}/oc-p13_oc-lettings:latest
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/oc-p13_oc-lettings:${{ github.sha }}
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/oc-p13_oc-lettings:latest
+
+      - name: Push Docker image (sha)
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/oc-p13_oc-lettings:${{ github.sha }}
+
+      - name: Push Docker image (latest)
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/oc-p13_oc-lettings:latest
