@@ -59,9 +59,8 @@ Dans le reste de la documentation sur le développement local, il est supposé q
 - Ouvrir une session shell `sqlite3`
 - Se connecter à la base de données `.open oc-lettings-site.sqlite3`
 - Afficher les tables dans la base de données `.tables`
-- Afficher les colonnes dans le tableau des profils, `pragma table_info(Python-OC-Lettings-FR_profile);`
-- Lancer une requête sur la table des profils, `select user_id, favorite_city from
-  Python-OC-Lettings-FR_profile where favorite_city like 'B%';`
+- Afficher les colonnes dans le tableau profils `pragma table_info(oc_lettings_site_profile);`
+- Lancer une requête sur la table profils `select user_id, favorite_city from oc_lettings_site_profile where favorite_city like 'B%';`
 - `.quit` pour quitter
 
 #### Panel d'administration
@@ -75,3 +74,60 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 
 - Pour activer l'environnement virtuel, `.\venv\Scripts\Activate.ps1` 
 - Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`
+
+## Déploiement
+
+### Vue d'ensemble
+
+L'application est déployée à l'aide d'un pipeline CI/CD reposant sur GitHub Actions, Docker Hub et Render.
+
+Lorsqu'un code est poussé sur n'importe quelle branche, GitHub Actions exécute les vérifications de qualité du code :
+
+- linting avec Flake8 ;
+- exécution des tests ;
+- vérification que la couverture de tests reste supérieure à 80 %.
+
+Lorsqu'une modification est appliquée dans la branche master :
+
+- GitHub Actions exécute le linting, les tests et la vérification de la couverture.
+- Une image Docker est construite à partir du Dockerfile du projet.
+- L'image est taguée avec le hash du commit ainsi qu'avec le tag latest.
+- L'image est publiée sur Docker Hub.
+- Un hook est déclenché et Render récupère la dernière image Docker puis déploie automatiquement l'application.
+
+#### Configuration requise
+
+Les services suivants doivent être configurés :
+
+- un dépôt GitHub ;
+- GitHub Actions ;
+- un compte Docker Hub et un dépôt Docker Hub ;
+- un service Web Render configuré pour utiliser l'image Docker du projet.
+
+#### Secrets GitHub
+
+Les secrets suivants doivent être configurés dans le dépôt GitHub :
+
+  DOCKERHUB_USERNAME
+  DOCKERHUB_TOKEN
+  RENDER_DEPLOY_HOOK
+
+#### Variables d'environnement
+
+Les variables d'environnement suivantes doivent être configurées sur Render :
+
+  SECRET_KEY
+  DEBUG=False
+  SENTRY_DSN
+
+### Procédure de déploiement
+
+#### Déploiement initial
+
+1 - Créer un dépôt Docker Hub.
+2 - Créer un service Web sur Render utilisant l'image Docker hébergée sur Docker Hub.
+3 - Configurer les variables d'environnement nécessaires sur Render.
+4 - Ajouter les secrets GitHub requis.
+5 - Pousser le projet sur GitHub.
+
+Une fois le pipeline configuré, aucune intervention manuelle n'est nécessaire pour déployer une nouvelle version de l'application.
