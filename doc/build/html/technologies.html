@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html lang="fr" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Technologies &#8212; Documentation OC Lettings Site Documentation 1.0.0</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=05dadb3a"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/translations.js?v=e6b791cb"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Base de données" href="database.html" />
+    <link rel="prev" title="Interface de programmation" href="api.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="technologies">
+<h1>Technologies<a class="headerlink" href="#technologies" title="Lien vers cette rubrique">¶</a></h1>
+<p>Le projet OC Lettings Site est une application web développée en Python à l’aide du framework Django.</p>
+<p>Plusieurs outils complémentaires sont utilisés afin de faciliter le développement, les tests, la conteneurisation, l’intégration continue et le déploiement de l’application.</p>
+<section id="langages-de-programmation">
+<h2>Langages de programmation<a class="headerlink" href="#langages-de-programmation" title="Lien vers cette rubrique">¶</a></h2>
+<ul class="simple">
+<li><p>Python</p></li>
+<li><p>HTML</p></li>
+<li><p>CSS</p></li>
+</ul>
+</section>
+<section id="frameworks-et-bibliotheques">
+<h2>Frameworks et bibliothèques<a class="headerlink" href="#frameworks-et-bibliotheques" title="Lien vers cette rubrique">¶</a></h2>
+<section id="django">
+<h3>Django<a class="headerlink" href="#django" title="Lien vers cette rubrique">¶</a></h3>
+<p>Le framework Django constitue le cœur de l’application. Il fournit notamment :</p>
+<ul class="simple">
+<li><p>le système de routage ;</p></li>
+<li><p>l’ORM ;</p></li>
+<li><p>le moteur de templates ;</p></li>
+<li><p>l’interface d’administration.</p></li>
+</ul>
+</section>
+<section id="gunicorn">
+<h3>Gunicorn<a class="headerlink" href="#gunicorn" title="Lien vers cette rubrique">¶</a></h3>
+<p>Gunicorn est utilisé comme serveur WSGI pour exécuter l’application en production.</p>
+</section>
+<section id="whitenoise">
+<h3>WhiteNoise<a class="headerlink" href="#whitenoise" title="Lien vers cette rubrique">¶</a></h3>
+<p>WhiteNoise permet de servir les fichiers statiques directement depuis l’application Django.</p>
+</section>
+<section id="sentry-sdk">
+<h3>Sentry SDK<a class="headerlink" href="#sentry-sdk" title="Lien vers cette rubrique">¶</a></h3>
+<p>Sentry est utilisé pour la surveillance de l’application et le suivi des erreurs en production.</p>
+</section>
+</section>
+<section id="base-de-donnees">
+<h2>Base de données<a class="headerlink" href="#base-de-donnees" title="Lien vers cette rubrique">¶</a></h2>
+<p>SQLite est utilisée comme base de données relationnelle du projet.</p>
+</section>
+<section id="conteneurisation">
+<h2>Conteneurisation<a class="headerlink" href="#conteneurisation" title="Lien vers cette rubrique">¶</a></h2>
+<section id="docker">
+<h3>Docker<a class="headerlink" href="#docker" title="Lien vers cette rubrique">¶</a></h3>
+<p>Docker permet de construire une image contenant l’ensemble de l’application et de ses dépendances.</p>
+</section>
+<section id="docker-compose">
+<h3>Docker Compose<a class="headerlink" href="#docker-compose" title="Lien vers cette rubrique">¶</a></h3>
+<p>Docker Compose simplifie l’exécution locale de l’application grâce à une configuration centralisée des services et des variables d’environnement.</p>
+</section>
+</section>
+<section id="integration-et-deploiement-continus">
+<h2>Intégration et déploiement continus<a class="headerlink" href="#integration-et-deploiement-continus" title="Lien vers cette rubrique">¶</a></h2>
+<section id="github">
+<h3>GitHub<a class="headerlink" href="#github" title="Lien vers cette rubrique">¶</a></h3>
+<p>GitHub est utilisé pour l’hébergement du code source et la gestion des versions.</p>
+</section>
+<section id="github-actions">
+<h3>GitHub Actions<a class="headerlink" href="#github-actions" title="Lien vers cette rubrique">¶</a></h3>
+<p>GitHub Actions exécute automatiquement le pipeline CI/CD du projet :</p>
+<ul class="simple">
+<li><p>vérification du style de code ;</p></li>
+<li><p>exécution des tests ;</p></li>
+<li><p>contrôle de la couverture de tests ;</p></li>
+<li><p>construction et publication des images Docker ;</p></li>
+<li><p>déclenchement du déploiement.</p></li>
+</ul>
+</section>
+<section id="docker-hub">
+<h3>Docker Hub<a class="headerlink" href="#docker-hub" title="Lien vers cette rubrique">¶</a></h3>
+<p>Docker Hub est utilisé comme registre de conteneurs pour stocker les images Docker générées par le pipeline.</p>
+</section>
+<section id="render">
+<h3>Render<a class="headerlink" href="#render" title="Lien vers cette rubrique">¶</a></h3>
+<p>Render est utilisé pour l’hébergement et le déploiement de l’application en production.</p>
+</section>
+</section>
+<section id="qualite-logicielle">
+<h2>Qualité logicielle<a class="headerlink" href="#qualite-logicielle" title="Lien vers cette rubrique">¶</a></h2>
+<section id="pytest">
+<h3>Pytest<a class="headerlink" href="#pytest" title="Lien vers cette rubrique">¶</a></h3>
+<p>Pytest est utilisé pour l’exécution de la suite de tests automatisés.</p>
+</section>
+<section id="pytest-cov-et-coverage">
+<h3>Pytest-Cov et Coverage<a class="headerlink" href="#pytest-cov-et-coverage" title="Lien vers cette rubrique">¶</a></h3>
+<p>Ces outils permettent de mesurer la couverture des tests et de vérifier qu’elle reste supérieure à 80 %.</p>
+</section>
+<section id="flake8">
+<h3>Flake8<a class="headerlink" href="#flake8" title="Lien vers cette rubrique">¶</a></h3>
+<p>Flake8 est utilisé pour l’analyse statique du code et la vérification du respect des conventions de style Python.</p>
+</section>
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Lien vers cette rubrique">¶</a></h2>
+<section id="sphinx">
+<h3>Sphinx<a class="headerlink" href="#sphinx" title="Lien vers cette rubrique">¶</a></h3>
+<p>Sphinx est utilisé pour générer la documentation technique du projet.</p>
+</section>
+<section id="read-the-docs">
+<h3>Read the Docs<a class="headerlink" href="#read-the-docs" title="Lien vers cette rubrique">¶</a></h3>
+<p>Read the Docs héberge et publie automatiquement la documentation générée par Sphinx.</p>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">OC Lettings Site Documentation</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Sommaire</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Démarrage rapide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html">Déploiement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Utilisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Interface de programmation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Technologies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#langages-de-programmation">Langages de programmation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frameworks-et-bibliotheques">Frameworks et bibliothèques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#base-de-donnees">Base de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conteneurisation">Conteneurisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integration-et-deploiement-continus">Intégration et déploiement continus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#qualite-logicielle">Qualité logicielle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Base de données</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="api.html" title="Chapitre précédent">Interface de programmation</a></li>
+      <li>Next: <a href="database.html" title="Chapitre suivant">Base de données</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, QuentinSab.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.0.4</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/technologies.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

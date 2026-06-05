@@ -108,26 +108,26 @@ Les services suivants doivent être configurés :
 
 Les secrets suivants doivent être configurés dans le dépôt GitHub :
 
-  DOCKERHUB_USERNAME
-  DOCKERHUB_TOKEN
-  RENDER_DEPLOY_HOOK
+    DOCKERHUB_USERNAME
+    DOCKERHUB_TOKEN
+    RENDER_DEPLOY_HOOK
 
 #### Variables d'environnement
 
 Les variables d'environnement suivantes doivent être configurées sur Render :
 
-  SECRET_KEY
-  DEBUG=False
-  SENTRY_DSN
+    SECRET_KEY
+    DEBUG=False
+    SENTRY_DSN
 
 ### Procédure de déploiement
 
 #### Déploiement initial
 
-1 - Créer un dépôt Docker Hub.
-2 - Créer un service Web sur Render utilisant l'image Docker hébergée sur Docker Hub.
-3 - Configurer les variables d'environnement nécessaires sur Render.
-4 - Ajouter les secrets GitHub requis.
-5 - Pousser le projet sur GitHub.
+- Créer un dépôt Docker Hub.
+- Créer un service Web sur Render utilisant l'image Docker hébergée sur Docker Hub.
+- Configurer les variables d'environnement nécessaires sur Render.
+- Ajouter les secrets GitHub requis.
+- Pousser le projet sur GitHub.
 
 Une fois le pipeline configuré, aucune intervention manuelle n'est nécessaire pour déployer une nouvelle version de l'application.
